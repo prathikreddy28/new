@@ -1,0 +1,22 @@
+<!-- confirmation_email.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Confirmation</title>
+</head>
+<body>
+    <h2>Appointment Confirmation</h2>
+    <p>Dear {{ name }},</p>
+    <p>Your appointment for {{ service }} on {{ appointment_date }} has been confirmed.</p>
+    <p>Appointment details:</p>
+    <ul>
+        <li>Name: {{ name }}</li>
+        <li>Phone: {{ phone }}</li>
+        <li>Email: {{ email }}</li>
+        <li>Service: {{ service }}</li>
+        <li>Appointment Date: {{ appointment_date }}</li>
+    </ul>
+    <p>Thank you for choosing our service.</p>
+</body>
+</html>

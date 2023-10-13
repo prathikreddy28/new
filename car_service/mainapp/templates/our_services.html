@@ -1,0 +1,187 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Car Service Center</title>
+    <style>
+        /* Reset some default styles */
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow: hidden; /* Prevent scrollbars */
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3); /* Transparent black */
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .left-side {
+      display: flex;
+      align-items: center;
+      padding: 10px 20px;
+    }
+
+    .right-side {
+      padding: 10px 20px;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+    }
+
+    ul li {
+      margin-right: 10px;
+    }
+
+    ul li a {
+      text-decoration: none;
+      color: white;
+    }
+
+    .appointment-button {
+    background-color: rgba(51, 51, 51, 0.0); /* Adjust the alpha value for transparency */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .appointment-button:hover {
+    background-color: rgba(85, 85, 85, 0.7); /* Slightly darker transparent color on hover */
+  }
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .video-background {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        ul.services {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .service {
+            text-align: center;
+            margin: 10px;
+            width: 200px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="left-side">
+            <ul>
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'our_services' %}">Services</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+        <div class="right-side">
+            <a href="{% url 'service_selection' %}" class="appointment-button">Book Appointment</a>
+        </div>
+    </nav>
+    <div class="video-background">
+        <video autoplay muted loop>
+            <source src="{% static 'images/video/new2.mp4' %}" type="video/mp4">
+            <!-- Add additional source elements for different video formats (e.g., WebM, Ogg) -->
+        </video>
+        <div class="container">
+            <h1>Basic Car Service List</h1>
+            <ul class="services">
+                <li class="service">
+                    <img src="{% static 'images/AC service and repair.png' %}" alt="AC service and repair">
+                    <p>Ac service and repair</p>
+                </li>
+                <li class="service">
+                    <img src="{% static 'images/inspection.png' %}" alt="car inspection">
+                    <p>Car inspection</p>
+                </li>
+                <li class="service">
+                    <img src="{% static 'images/periodic services.png' %}" alt="perodic service">
+                    <p>perodic services</p>
+                </li>
+                <li class="service">
+                    <img src="{% static 'images/Suspension and Fitments.png' %}" alt="Suspension and Fitments">
+                    <p>Suspension and Fitments</p>
+                </li>
+                <li class="service">
+                    <img src="{% static 'images/windshields and lights.png' %}" alt="windshields and lights">
+                    <p>windshields and lights</p>
+                </li>
+                <li class="service">
+                    <img src="{% static 'images/detailing.png' %}" alt="detailing">
+                    <p>detailing</p>
+                </li>
+                <li class="service">
+                    <img src="{% static 'images/Clutch and bodyparts.png' %}" alt="Clutch and bodyparts">
+                    <p>Clutch and bodyparts</p>
+                </li>
+                
+                <!-- Add similar lines for other services -->
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

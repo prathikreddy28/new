@@ -1,0 +1,316 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Car Service Center</title>
+    <style>
+      /* Reset some default styles */
+      body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrollbars */
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3); /* Transparent black */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+  }
+
+  .left-side {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .right-side {
+    padding: 10px 20px;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+  }
+
+  ul li {
+    margin-right: 10px;
+  }
+
+  ul li a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .appointment-button {
+  background-color: rgba(51, 51, 51, 0.0); /* Adjust the alpha value for transparency */
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 18px;
+  display: inline-block;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.appointment-button:hover {
+  background-color: rgba(85, 85, 85, 0.7); /* Slightly darker transparent color on hover */
+}
+
+      /* Add your CSS styles here */
+      body {
+          font-family: Arial, sans-serif;
+          background-color: #f4f4f4;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 100vh;
+          margin-top: 80px; /* Adjust this margin to account for the fixed navigation bar */
+      }
+
+      .container {
+          width: 80%;
+          max-width: 800px;
+          background-color: #fff;
+          box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+          border-radius: 10px;
+          padding: 40px;
+          text-align: center;
+      }
+
+      h1 {
+          color: #333;
+          margin-bottom: 20px;
+      }
+
+      h2 {
+          color: #555;
+          margin-top: 20px;
+      }
+
+      p {
+          line-height: 1.6;
+          color: #555;
+          margin: 20px 0;
+      }
+
+      ul {
+          padding-left: 20px;
+          color: #555;
+      }
+
+    
+
+      .image-container {
+          text-align: center;
+          margin-top: 30px;
+      }
+
+      img {
+          max-width: 100%;
+          height: auto;
+          border-radius: 5px;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-button {
+          display: inline-block;
+          background-color: #333;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 5px;
+          text-decoration: none;
+          margin-top: 20px;
+          transition: background-color 0.3s ease;
+      }
+
+      .contact-button:hover {
+          background-color: #555;
+      }
+      .video-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Place it behind other content */
+  }
+
+  .video-container {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  .contact-container {
+    max-width: 800px;
+    margin: 10 ;
+    background-color: rgba(0, 0, 0, 0);
+    padding: 100px;
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+
+  .contact-form input[type="text"],
+  .contact-form input[type="email"] {
+    width: 120%;
+  }
+
+  .contact-form textarea {
+    resize: vertical;
+  }
+
+  .contact-form button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .contact-form button:hover {
+    background-color: #0056b3;
+  }
+
+  .map-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  iframe {
+    max-width: 100%;
+    height: 400px;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="left-side">
+      <ul>
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'our_services' %}">Services</a></li>
+        <li><a href="{% url 'contact' %}">Contact</a></li>
+    </ul>
+    </div>
+    <div class="right-side">
+      <a href="{% url 'service_selection' %}" class="appointment-button">Book Appointment</a>
+    </div>
+</nav>
+<div class="video-background">
+    <div class="video-container">
+      <video autoplay muted loop>
+        <source src="{% static 'images/video/new1.mp4' %}"new1.mp4" type="video/mp4">
+        <!-- Add additional source elements for different video formats (e.g., WebM, Ogg) -->
+      </video>
+    </div>
+  </div>
+
+<div class="contact-container">
+  
+  <form class="contact-form" onsubmit="sanitizeInput(event)">
+    <input id="nameInput" type="text" placeholder="Your Name" required><br>
+    <input id="emailInput" type="email" placeholder="Your Email" required><br>
+    <textarea id="messageInput" placeholder="Your Message" rows="5" required></textarea><br>
+    <button type="submit">Submit</button>
+  </form>
+  
+</div>
+
+<script>
+ function sanitizeInput(event) {
+      // Sanitize input (you can add more sanitization if needed)
+      const nameInput = escapeHtml(document.getElementById('nameInput').value);
+      const emailInput = escapeHtml(document.getElementById('emailInput').value);
+      const messageInput = escapeHtml(document.getElementById('messageInput').value);
+
+      // Create a JavaScript object with the form data
+      const formData = {
+        name: nameInput,
+        email: emailInput,
+        message: messageInput
+      };
+
+      // Convert the JavaScript object to a JSON string
+      const jsonData = JSON.stringify(formData);
+
+      // Send the form data to the Django backend using the fetch API
+      fetch('/contact_message/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: jsonData
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Message saved successfully:', data);
+        alert('Message sent successfully!');
+      })
+      .catch(error => {
+        console.error('Error saving message:', error);
+        alert('Error sending message. Please try again.');
+      });
+
+      event.preventDefault();  // Prevent the form from submitting through traditional means
+    }
+
+    function escapeHtml(unsafe) {
+      return unsafe
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+  function redirectToServiceSelection() {
+    window.location.href = 'service_selection.html';
+  }
+
+
+
+</script>
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31108.99535976925!2d77.5084580111539!3d12.931843942293233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae3f6b65f63b5b%3A0x20c589588c5a815a!2sTechTune%20Motors%20Multi%20Brand%20Car!5e0!3m2!1sen!2sin!4v1697197716178!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</body>
+</html>
+

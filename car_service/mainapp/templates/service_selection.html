@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="tel"],
+        input[type='email'],
+        select,
+        input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Select Services and Appointment Slots</h1>
+        <div class="form-container">
+            <form id="appointmentForm" method="post" onsubmit="submitForm(event)">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="phone">Phone Number:</label>
+                <select id="country-code" onchange="updatePlaceholder()">
+                    <option value="" disabled selected>Select a country code</option>
+                    <option value="91">+91 (India)</option>
+                </select>
+                <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="service">Select Service:</label>
+                <select id="service" name="service">
+                    <option value="1">AC service and repair</option>
+                    <option value="2">car inspection</option>
+                    <option value="3">perodic service</option>
+                    <option value="4">Suspension and Fitments</option>
+                    <option value="5">windshields and lights</option>
+                    <option value="6">detailing</option>
+                    <option value="7">Clutch and bodyparts</option>
+                </select>
+
+                <label for="appointment-date">Choose Date:</label>
+                <input type="date" id="appointment-date" name="appointment_date" required> 
+                <button type="submit">Confirm Appointment</button>
+            </form>
+        </div>
+    </div>
+
+   <script>
+   function submitForm(event) {
+    event.preventDefault();
+
+    const selectElement = document.getElementById('service');
+    const service_id = selectElement.value;
+
+    const formData = new FormData(document.getElementById('appointmentForm'));
+    formData.set('service', service_id);  // Set the correct service ID in the form data
+
+    const csrftoken = getCookie('csrftoken');
+
+    fetch("/submit_appointment/", {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': csrftoken
+        },
+        body: formData,
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert(data.message);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Form submission failed. Please try again.');
+    });
+
+    return false;
+}
+
+
+
+
+    // Function to get the CSRF token from the cookie
+    function getCookie(name) {
+        const cookieValue = document.cookie.match('(^|;)\\s*' + name + '\\s*=\\s*([^;]+)');
+        return cookieValue ? cookieValue.pop() : '';
+    }
+
+    // Call updatePlaceholder when the page loads
+    updatePlaceholder();
+</script>
+
+</body>
+</html>
+</body>
+</html>

@@ -1,0 +1,232 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>About Us - Car Service Center</title>
+        <style>
+            /* Reset some default styles */
+            body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        overflow: hidden; /* Prevent scrollbars */
+        }
+
+        nav {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3); /* Transparent black */
+        color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 999;
+        }
+
+        .left-side {
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        }
+
+        .right-side {
+        padding: 10px 20px;
+        }
+
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        }
+
+        ul li {
+        margin-right: 10px;
+        }
+
+        ul li a {
+        text-decoration: none;
+        color: white;
+        }
+
+        .appointment-button {
+        background-color: rgba(51, 51, 51, 0.0); /* Adjust the alpha value for transparency */
+        color: white;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 18px;
+        display: inline-block;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .appointment-button:hover {
+        background-color: rgba(85, 85, 85, 0.7); /* Slightly darker transparent color on hover */
+    }
+
+            /* Add your CSS styles here */
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                margin-top: 80px; /* Adjust this margin to account for the fixed navigation bar */
+            }
+
+            .video-background {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                overflow: hidden;
+                z-index: -1;
+            }
+
+            .video-container {
+                width: 100%;
+                height: 100%;
+                position: relative;
+            }
+
+            video {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            .container {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background-color: rgba(255, 255, 255, 0.8);
+                padding: 20px;
+                border-radius: 10px;
+                text-align: center;
+                z-index: 1;
+            }
+
+            h1 {
+                color: #333;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                color: #555;
+                margin-top: 20px;
+            }
+
+            p {
+                line-height: 1.6;
+                color: #555;
+                margin: 20px 0;
+            }
+
+            ul {
+                padding-left: 20px;
+                color: #555;
+            }
+
+            .mission {
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+                margin-top: 20px;
+            }
+
+            .why-choose-us {
+                background-color: #f9f9f9;
+                padding: 20px;
+                border-radius: 5px;
+                margin-top: 0px;
+            }
+
+            .image-container {
+                text-align: center;
+                margin-top: 30px;
+            }
+
+            img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 5px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .contact-button {
+                display: inline-block;
+                background-color: #333;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 20px;
+                text-decoration: none;
+                margin-top: 8px;
+                transition: background-color 0.3s ease;
+            }
+
+            .contact-button:hover {
+                background-color: #555;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="left-side">
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'about' %}">About</a></li>
+                    <li><a href="{% url 'our_services' %}">Services</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                </ul>
+            </div>
+            <div class="right-side">
+                <a href="{% url 'service_selection' %}" class="appointment-button">Book Appointment</a>
+            </div>
+        </nav>
+        <div class="video-background">
+            <div class="video-container">
+            <video autoplay muted loop>
+                <source src="{% static 'images/video/new4.mp4' %}" type="video/mp4">
+                <!-- Add additional source elements for different video formats (e.g., WebM, Ogg) -->
+            </video>
+            </div>
+        </div>
+        <div class="container">
+        <h1>About Us</h1>
+        <p>Welcome to Car Service Center, your trusted destination for multi-brand car services. With years of experience and a team of dedicated professionals, we are committed to providing top-notch automotive services that keep your vehicle running smoothly.</p>
+
+        <div class="mission">
+            <h2>Our Mission</h2>
+            <p>At Car Service Center, our mission is to ensure the safety and reliability of your vehicle. We understand that your car is more than just transportation; it's a part of your daily life. That's why we strive to deliver the highest quality maintenance and repair services, using the latest technology and the expertise of our skilled technicians.</p>
+        </div>
+
+        <div class="why-choose-us">
+            <h2>Why Choose Us</h2>
+            
+                <p>Expert Technicians: Our team of experienced technicians is trained to work on a wide range of car brands and models.</p>
+                <p>Quality Parts: We use only genuine and high-quality replacement parts for your vehicle.</p>
+                <p>Customer Satisfaction: Your satisfaction is our priority, and we aim to exceed your expectations with every visit.</p>
+                <p>Convenience: We offer convenient appointment scheduling and strive to complete your service quickly and efficiently.</p>
+            
+        </div>
+
+        
+
+        <a href="{% url 'contact' %}" class="contact-button">Contact Us</a>
+
+    </div>
+    </body>
+    </html>
